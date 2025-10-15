@@ -1,28 +1,122 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-    <meta charset="UTF-8">
-    <title>Tere tulemast minu küberturbe info lehele!</title>
+  <meta charset="UTF-8" />
+  <title>Tere tulemast minu küberturbe info lehele!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-image 0.6s ease-in-out;
+    }
+
+    /* tume poolläbipaistev overlay, et tekst oleks loetav */
+    .overlay {
+      background: rgba(0,0,0,0.45);
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    .content {
+      max-width: 900px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin: 12px 0;
+      line-height: 1.2;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    p {
+      margin: 6px 0 18px 0;
+      color: #eee;
+    }
+
+    a {
+      color: #bfe9ff;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(191,233,255,0.4);
+    }
+
+    a:hover {
+      color: #fff;
+      border-bottom-style: solid;
+    }
+
+    footer {
+      margin-top: 36px;
+      font-size: 0.9rem;
+      color: #d7eaf3;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+      .content { padding: 0 10px; }
+      h1 { font-size: 1.4rem; }
+      h2 { font-size: 1.1rem; }
+    }
+  </style>
 </head>
 <body>
-    <h1><a href="https://www.cert.ee">Tere tulemast küberturbe organisatsiooni CERT.EE veebilehele!</a></h1>
-    <p>See on minu esimene maandumisleht testimiseks loodud AWS Docker konteineris.</p>
+  <div class="overlay">
+    <div class="content">
+      <h1><a href="https://www.cert.ee" target="_blank" rel="noopener">Viide CERT.EE kodulehele!</a></h1>
+      <p>See on minu esimene maandumisleht testimiseks loodud AWS Docker konteineris.</p>
 
-    <h2><a href="https://cuckoo.cert.ee">Testi kahtlasi faile ja linke mis sulle on saadetud siin!</a></h2>
-    <p>See on CERT.EE tööriist cuckoo.cert.ee!</p>
+      <h2><a href="https://cuckoo.cert.ee" target="_blank" rel="noopener">Testi kahtlasi faile ja linke siin (cuckoo.cert.ee)</a></h2>
+      <p>See on CERT.EE tööriist cuckoo.cert.ee!</p>
 
-    <h2><a href="https://shodan.io">Shodan.io leht testimiseks</a></h2>
-    <p>See on shodan.io.</p>
+      <h2><a href="https://shodan.io" target="_blank" rel="noopener">Shodan.io leht testimiseks</a></h2>
+      <p>See on shodan.io.</p>
 
-    <h2><a href="https://hardenize.com">Hardenize.com leht paljude võimalustega.</a></h2>
-    <p>See on hardenize.com</p>
+      <h2><a href="https://hardenize.com" target="_blank" rel="noopener">Hardenize.com — paljude võimalustega</a></h2>
+      <p>See on hardenize.com</p>
 
-    <h2><a href="https://virustotal.com">Virustotal.com leht erinevateks testimiseks</a></h2>
-    <p>See on virustotal.com</p>
+      <h2><a href="https://virustotal.com" target="_blank" rel="noopener">Virustotal.com — erinevateks testimiseks</a></h2>
+      <p>See on virustotal.com</p>
 
+      <footer>Taustapildid valitakse juhuslikult kataloogist <code>/images/bg1.jpg … /images/bg9.jpg</code></footer>
+    </div>
+  </div>
 
+  <script>
+    // kui pildid on nimega bg1.jpg .. bg9.jpg ja asuvad images/
+    const count = 9;
+    const images = Array.from({length: count}, (_, i) => `images/bg${i+1}.jpg`);
 
+    // eellae mõned pildid (soojendamiseks)
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
 
+    // vali juhuslik pilt
+    const pickRandom = arr => arr[Math.floor(Math.random() * arr.length)];
+
+    // lisa kerge fade-in efekt kontrolli all (väike delay, et üleminek oleks sujuvam)
+    (function setBackground() {
+      const img = pickRandom(images);
+      // lisame cache-bust, kui soovime alati värsket faili (tavaliselt pole vaja)
+      const url = img; // + '?v=' + Date.now();
+      document.body.style.backgroundImage = `url('${url}')`;
+    })();
+  </script>
 </body>
 </html>
 
