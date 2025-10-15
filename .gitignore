@@ -1,0 +1,25 @@
+# Jäta välja SSL sertifikaadid ja võtmed
+*.crt
+*.key
+certs/
+ssl/
+
+# Docker ja logifailid
+*.log
+*.pid
+*.tar
+*.gz
+
+# IDE ja süsteemifailid
+.vscode/
+.idea/
+.DS_Store
+
+# Python virtualenv (kui kasutad)
+venv/
+__pycache__/
+
+# Node / frontend build
+node_modules/
+dist/
+build/
