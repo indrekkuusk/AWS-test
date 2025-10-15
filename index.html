@@ -5,11 +5,7 @@
   <title>Tere tulemast minu küberturbe info lehele!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
+    html, body { height: 100%; margin: 0; }
     body {
       background-size: cover;
       background-repeat: no-repeat;
@@ -20,8 +16,6 @@
       -moz-osx-font-smoothing: grayscale;
       transition: background-image 0.6s ease-in-out;
     }
-
-    /* tume poolläbipaistev overlay, et tekst oleks loetav */
     .overlay {
       background: rgba(0,0,0,0.45);
       min-height: 100%;
@@ -31,92 +25,61 @@
       padding: 40px;
       box-sizing: border-box;
     }
-
-    .content {
-      max-width: 900px;
-      text-align: center;
-    }
-
-    h1, h2 {
-      margin: 12px 0;
-      line-height: 1.2;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    }
-
-    p {
-      margin: 6px 0 18px 0;
-      color: #eee;
-    }
-
-    a {
-      color: #bfe9ff;
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(191,233,255,0.4);
-    }
-
-    a:hover {
-      color: #fff;
-      border-bottom-style: solid;
-    }
-
-    footer {
-      margin-top: 36px;
-      font-size: 0.9rem;
-      color: #d7eaf3;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 600px) {
-      .content { padding: 0 10px; }
-      h1 { font-size: 1.4rem; }
-      h2 { font-size: 1.1rem; }
-    }
+    .content { max-width: 900px; text-align: center; }
+    h1, h2 { margin: 12px 0; line-height: 1.2; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+    h1.big { font-size: 2rem; } /* Teksti suurendamiseks */
+    p { margin: 6px 0 18px 0; color: #eee; }
+    a { color: #bfe9ff; text-decoration: none; border-bottom: 1px dashed rgba(191,233,255,0.4); }
+    a:hover { color: #fff; border-bottom-style: solid; }
+    footer { margin-top: 36px; font-size: 0.9rem; color: #d7eaf3; opacity: 0.9; }
+    @media (max-width: 600px) { .content { padding: 0 10px; } h1 { font-size: 1.4rem; } h2 { font-size: 1.1rem; } }
   </style>
 </head>
 <body>
   <div class="overlay">
     <div class="content">
-      <h1><a href="https://www.cert.ee" target="_blank" rel="noopener">Viide CERT.EE kodulehele!</a></h1>
-      <p>See on minu esimene maandumisleht testimiseks loodud AWS Docker konteineris.</p>
+      <!-- Suur tekst enne pealkirja -->
+      <h1 class="big">See on minu esimene maandumisleht testimiseks loodud AWS Docker konteineris.</h1>
+
+      <h1><a href="https://www.cert.ee" target="_blank" rel="noopener">Küberintsidentide käsitlemine CERT-EE</a></h1>
 
       <h2><a href="https://cuckoo.cert.ee" target="_blank" rel="noopener">Testi kahtlasi faile ja linke siin (cuckoo.cert.ee)</a></h2>
       <p>See on CERT.EE tööriist cuckoo.cert.ee!</p>
 
-      <h2><a href="https://shodan.io" target="_blank" rel="noopener">Shodan.io leht testimiseks</a></h2>
+      <h2><a href="https://shodan.io" target="_blank" rel="noopener">Shodan.io Search Engine for the Internet of Everything</a></h2>
       <p>See on shodan.io.</p>
 
-      <h2><a href="https://hardenize.com" target="_blank" rel="noopener">Hardenize.com — paljude võimalustega</a></h2>
+      <h2><a href="https://hardenize.com" target="_blank" rel="noopener">Hardenize.com — Automated Discovery and Monitoring of Your Entire Network Perimeter</a></h2>
       <p>See on hardenize.com</p>
 
-      <h2><a href="https://virustotal.com" target="_blank" rel="noopener">Virustotal.com — erinevateks testimiseks</a></h2>
+      <h2><a href="https://virustotal.com" target="_blank" rel="noopener">Virustotal.com — Analyse suspicious files, domains, IPs and URLs to detect malware and other breaches</a></h2>
       <p>See on virustotal.com</p>
 
-      <footer>Taustapildid valitakse juhuslikult kataloogist <code>/images/bg1.jpg … /images/bg9.jpg</code></footer>
+      <!-- Uued lisatud lingid -->
+      <h2><a href="https://www.wired.com/story/sony-hack-10-years-later/" target="_blank" rel="noopener">Kuulus küberturbe intsident: Sony 2014 rünnak</a></h2>
+      <p>Ülevaade Sony suurtest andmerikkumistest ja mõjust küberturbele.</p>
+
+      <h2><a href="https://www.kali.org/" target="_blank" rel="noopener">Riistvaralised küberrünnete vahendid: Kali Linux</a></h2>
+      <p>Kali Linux on tuntud tööriistakomplekt pentestimiseks ja küberrünnete testimiseks.</p>
+
+      <h2><a href="https://eidas.ec.europa.eu/" target="_blank" rel="noopener">Küberturvalisusega seotud e-teenus: eIDAS raamistiku teenused</a></h2>
+      <p>Euroopa eIDAS pakub turvalisi elektroonilisi identiteediteenuseid ja digiallkirju.</p>
+
+      <footer>Taustapildid valitakse juhuslikult kataloogist <code>/images/bg1.jpg … /images/bg10.jpg</code></footer>
     </div>
   </div>
 
   <script>
-    // kui pildid on nimega bg1.jpg .. bg9.jpg ja asuvad images/
-    const count = 9;
+    const count = 10;
     const images = Array.from({length: count}, (_, i) => `images/bg${i+1}.jpg`);
-
-    // eellae mõned pildid (soojendamiseks)
-    images.forEach(src => {
-      const img = new Image();
-      img.src = src;
-    });
-
-    // vali juhuslik pilt
+    images.forEach(src => { const img = new Image(); img.src = src; });
     const pickRandom = arr => arr[Math.floor(Math.random() * arr.length)];
-
-    // lisa kerge fade-in efekt kontrolli all (väike delay, et üleminek oleks sujuvam)
     (function setBackground() {
       const img = pickRandom(images);
-      // lisame cache-bust, kui soovime alati värsket faili (tavaliselt pole vaja)
-      const url = img; // + '?v=' + Date.now();
-      document.body.style.backgroundImage = `url('${url}')`;
+      document.body.style.backgroundImage = `url('${img}')`;
     })();
   </script>
 </body>
 </html>
+
 
