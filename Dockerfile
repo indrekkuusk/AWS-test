@@ -1,7 +1,4 @@
 FROM nginx:latest
-#COPY index.html /usr/share/nginx/html/index.html
-#EXPOSE 80
-# Kopeeri veebifailid
 COPY index.html /usr/share/nginx/html/
 
 # Kopeeri sertifikaadid ja konfiguratsioon
